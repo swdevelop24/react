@@ -1,0 +1,30 @@
+# 🔹 Node.js 의존성 폴더 (필수)
+node_modules/
+
+# 🔹 환경 변수 파일 (API 키, 비밀번호 포함 가능)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 🔹 빌드 결과물 (필수, Git에 올릴 필요 없음)
+build/
+dist/
+
+# 🔹 캐시 및 로그 파일
+.cache/
+.parcel-cache/
+.turbo/
+.next/
+coverage/
+.eslintcache
+.vscode/
+.DS_Store  # Mac에서 자동 생성되는 파일
+Thumbs.db  # Windows에서 자동 생성되는 파일
+
+# 🔹 패키지 매니저 관련 (필요한 경우)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
