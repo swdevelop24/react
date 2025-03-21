@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  background: url("https://images.unsplash.com/photo-1558486012-817176f84c6d?q=80&w=1804&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center calc(30%);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+
+}
+
+.weather-box {
+  min-width: 60%;
+  min-height: 30%;
+  line-height: 200%;
+  border: 3px solid white;
+  padding: 50px;
+  border-radius: 30px;
+  background-color: rgba(7, 7, 7, 0.2);
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  color: white;
+  text-align: center;
+  padding-top: 10%;
+  font-family: "Archivo";
+}
+
+.weather-button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* 첫 번째 버튼은 한 줄 단독 */
+  gap: 10px;
+  /* 버튼 사이 간격 */
+  justify-content: center;
+  /* 중앙 정렬 */
+  max-width: 300px;
+  /* 버튼 컨테이너 최대 너비 (필요 시 조정) */
+  margin: 0 auto;
+  /* 전체 컨테이너 가운데 정렬 */
+  font-weight: 600 !important;
+  /* font-family: "Archivo"; */
+
+}
+
+.weather-button-container .button-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 나머지 버튼들은 2개씩 배치 */
+  gap: 10px;
+  font-weight: 600 !important;
+  /* font-family: "Archivo"; */
+}
