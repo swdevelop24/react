@@ -1,0 +1,28 @@
+.form-width {
+  width: 100%;
+  max-width: 600px; /* 기본 최대 너비 600px */
+  margin: 0 auto;
+}
+
+.container-center {
+  display: flex-inline;
+  /* justify-content: center; */
+  width:500px;
+  align-items: center;
+  background-color: rgba(211, 211, 211, 0.3);
+  margin-top: 50px;
+  width: 90%;
+  max-width: 600px!important;
+  box-sizing: border-box;
+  padding:3%;
+}
+.form-button{
+  text-align: center;
+}
+/* 큰 화면에서 폼 확장 */
+@media (min-width: 1000px) {
+
+  .container-center {
+    max-width: 1000px;
+  }
+}

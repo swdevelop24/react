@@ -1,0 +1,193 @@
+.login-button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+    margin-right: 50px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+
+.nav-section {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-list {
+    display: flex;
+    list-style-type: none;
+}
+
+.menu-list li {
+    padding: 10px;
+    white-space: nowrap;
+    /* 줄바꿈 방지 */
+}
+
+
+.menu-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+
+}
+
+.menu-search {
+    position: absolute;
+    right: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+
+}
+
+.menu-search input {
+
+    border: none;
+    border-bottom: 1px solid black;
+    /* 포커스 테두리 제거 */
+    outline: none;
+    padding: 5px;
+    /* 흰색배경이라 필요없음 */
+    /* background: transparent;  */
+
+    padding-left: 40px;
+    /* 아이콘 들어갈 공간 확보 */
+    margin-right: 20px;
+}
+
+
+
+.search-icon {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+    pointer-events: none;
+}
+
+
+.container {
+    overflow: visible;
+}
+
+
+.product-card {
+    transition: transform 0.3s ease;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    /* margin: 50px auto;  */
+}
+
+.product-card:hover {
+
+    transform: scale(1.03);
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
+
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    /* 이미지와 텍스트 사이 간격 줄이기 */
+}
+
+
+.conscious-pcard {}
+
+/* 데스크톱에서는 버튼 숨기기 */
+.menu-btn,
+.close-btn {
+    display: none;
+    /* 데스크톱에서는 숨김 */
+}
+
+@media screen and (max-width: 1200px) {
+
+
+    .menu-search {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 80%;
+        max-width: 280px;
+        margin: 0 auto;
+        position: relative;
+        transform: translateX(30px);
+    }
+
+    .menu-search input {
+        flex: 1;
+        padding: 6px px 6px 30px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 14px;
+        min-width: 0;
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #555;
+        pointer-events: none;
+    }
+}
+
+
+/* 모바일에서는 버튼 보이기 */
+@media (max-width: 768px) {
+
+    .menu-list {
+        display: none;
+    }
+
+    .menu-btn,
+    .close-btn {
+        color: navy !important;
+        display: block;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        font-size: 24px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .close-btn {
+        top: 10px;
+        right: 15px;
+        font-size: 18px;
+    }
+
+    .menu-area.open {
+        left: 0;
+  
+    }
+
+    .menu-list.show {
+        display: block;
+        /* 메뉴 열림 */
+        background-color: rgba(66, 56, 49, 0.9);
+        position: absolute;
+        top: 90px;
+        left:-10px;
+        width:50%;
+        box-shadow: 0 4px 6px 4px rgba(121, 117, 117, 0.7);
+        z-index:50;
+    }
+
+    .menu-list.show li {
+        color: white /* 검정색으로 변경 */
+      }
+
+}
