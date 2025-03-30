@@ -201,94 +201,88 @@ h1 {
         z-index: -1;
     }
 }
-/* 반응형 설정 (모바일/태블릿 전용) */
+/* 모바일 반응형 (모바일 & 태블릿) */
 @media (max-width: 768px) {
-    /* 배경을 흐리게 + 화면에 꽉 채우기 */
+    /* 배경 흐리게 + 화면 채우기 */
     .background-blur {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-size: cover; /* 배경을 화면에 꽉 채움 */
-      background-position: center;
-      background-repeat: no-repeat;
-      filter: blur(8px); /* 배경 흐림 효과 */
-      z-index: -1; /* 배경을 가장 뒤로 */
-    }
-  
-    /* 전체 컨테이너 설정 */
-    .container {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start; /* 화면 상단에 요소 배치 */
-      align-items: center;
-      gap: 10px; /* 요소 사이 간격 조정 */
-      padding-top: 10px; /* 상단 여백 */
-      overflow: hidden; /* 스크롤 제거 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        filter: blur(8px);
+        z-index: -1;
     }
 
-    .headline{
-        font-size:50px;
+    /* 전체 컨테이너 설정 */
+    .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* 상단에 배치 */
+        align-items: center;
+        gap: 10px;
+        padding-top: 10px;
     }
-  
+
+    /* 헤드라인 크기 조정 */
+    .headline {
+        font-size: 10vw;
+        margin: 0;
+        margin-bottom:-50px;
+        padding-top: 0;
+
+    }
+
     /* 제목 크기 조정 */
     h1 {
-      font-size: 6vw; /* 모바일에서 제목 축소 */
-      margin-top: 5px;
+        font-size: 6vw;
+        margin-top: 5px;
     }
-  
-    /* Box 크기 조정 */
+
+    /* 박스 크기 조정 */
     .box {
-      width: 70vw; /* 박스 크기 조정 */
-      height: 60vw;
-      max-width: 150px;
-      max-height: 150px;
-      font-size: 3.5vw;
-      margin-top: 5px;
+        width: 70vw;
+        height: 70vw;
+        max-width: 200px;
+        max-height: 200px;
+        font-size: 4vw;
+        margin-top: 10px;
     }
-  
+
     /* 이미지 크기 조정 */
     .item-img {
-      width: 70%; /* 박스 안 이미지 크기 조정 */
-      height: auto;
+        width: 60vw;
+        max-width: 150px;
     }
-  
-    /* main 컨테이너 정렬 */
-    .main {
-      flex-direction: column;
-      gap: 5px;
-      height: auto;
-      margin-top: 5px;
-    }
-  
+
     /* 버튼 컨테이너 설정 */
     .button-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 5px;
-      flex-wrap: wrap;
-      margin-top: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 5px;
+        width: 100%;
+        margin-top: 10px;
     }
-  
+
     /* 버튼 크기 조정 */
     .custom-button {
-      padding: 8px;
-      font-size: 3.5vw;
-      width: 70px;
-      border-radius: 5px;
+        padding: 8px;
+        font-size: 4vw;
+        width: 70px;
+        border-radius: 5px;
     }
-  
+
     /* RESET 버튼 크기 조정 */
     .reset-button {
-      padding: 10px;
-      margin-top: 5px;
-      font-size: 4vw;
-      width: 80px;
-      border-radius: 50%;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 4vw;
+        width: 80px;
+        border-radius: 50%;
     }
-  }
-  
+}
