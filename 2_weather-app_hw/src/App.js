@@ -65,7 +65,7 @@ function App() {
   const getWeatherByCity = async () => {
 
     try {
-      let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
       setLoading(true);
       let response = await fetch(url)
       let data = await response.json()
