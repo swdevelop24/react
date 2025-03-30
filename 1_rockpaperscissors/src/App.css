@@ -201,28 +201,53 @@ h1 {
         z-index: -1;
     }
 }
-
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 24px;
-        /* 모바일에서는 크기 조정 */
-    }
-}
 /* 반응형 설정 (모바일/태블릿 전용) */
 @media (max-width: 768px) {
+    /* 배경을 흐리게 + 화면에 꽉 채우기 */
+    .background-blur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-size: cover; /* 배경을 화면에 꽉 채움 */
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(8px); /* 배경 흐림 효과 */
+      z-index: -1; /* 배경을 가장 뒤로 */
+    }
+  
+    /* 전체 컨테이너 설정 */
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* 화면 상단에 요소 배치 */
+      align-items: center;
+      gap: 10px; /* 요소 사이 간격 조정 */
+      padding-top: 10px; /* 상단 여백 */
+      overflow: hidden; /* 스크롤 제거 */
+    }
+
+    .headline{
+        font-size:50px;
+    }
+  
     /* 제목 크기 조정 */
-    .headline {
-      font-size: 15vw;
+    h1 {
+      font-size: 6vw; /* 모바일에서 제목 축소 */
+      margin-top: 5px;
     }
   
     /* Box 크기 조정 */
     .box {
-      width: 50vw; /* 너비를 뷰포트의 40%로 설정 */
-      height: 50vw;
-      max-width: 250px; /* 모바일에서 최대 크기 제한 */
-      max-height: 250px;
-      font-size: 3.5vw; /* 글자 크기 자동 조정 */
+      width: 70vw; /* 박스 크기 조정 */
+      height: 60vw;
+      max-width: 150px;
+      max-height: 150px;
+      font-size: 3.5vw;
+      margin-top: 5px;
     }
   
     /* 이미지 크기 조정 */
@@ -231,35 +256,39 @@ h1 {
       height: auto;
     }
   
-    /* main 컨테이너를 세로 정렬 */
+    /* main 컨테이너 정렬 */
     .main {
-      flex-direction: column; /* 모바일에서는 세로로 나열 */
-      gap: 10px;
+      flex-direction: column;
+      gap: 5px;
       height: auto;
-      margin-top: 10px;
+      margin-top: 5px;
+    }
+  
+    /* 버튼 컨테이너 설정 */
+    .button-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-top: 5px;
     }
   
     /* 버튼 크기 조정 */
     .custom-button {
-      padding: 6px 10px;
-      font-size: 3vw; /* 버튼 크기 자동 축소 */
-      width: 50px;
-      margin-top: 5px;
+      padding: 8px;
+      font-size: 3.5vw;
+      width: 70px;
+      border-radius: 5px;
     }
   
     /* RESET 버튼 크기 조정 */
     .reset-button {
       padding: 10px;
       margin-top: 5px;
-      font-size: 8vw;
-      width: 100px;
-    }
-  
-    /* 컨테이너 높이 자동 조정 */
-    .container {
-      height: 100vh;
-      overflow: hidden; /* 스크롤 제거 */
-      justify-content: space-evenly; /* 모바일에서는 요소 간격 조정 */
+      font-size: 4vw;
+      width: 80px;
+      border-radius: 50%;
     }
   }
   
