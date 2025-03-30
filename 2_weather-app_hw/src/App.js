@@ -21,7 +21,7 @@ const API_KEY = "24ee19012620ceecb014d7640b1874a9"
 //6.데이터를 들고오는 동안 로딩 스피너가 돈다. 
 
 
-const cities = ['Paris', 'New York', 'Tokyo', 'Seoul', 'Seattle', 'Alice Land']
+const cities = ['Paris', 'New York', 'Tokyo', 'Seoul', 'Seattle', '앨리스 원더랜드']
 
 function App() {
 
