@@ -11,7 +11,7 @@ import WeatherButton from "./component/WeatherButton";
 import ClipLoader from "react-spinners/ClipLoader";
 
 
-const API_KEY = ""
+const API_KEY = "24ee19012620ceecb014d7640b1874a9"
 
 //1.앱이 실행되자마자 현재위치기반이 날씨가 보인다
 //2. 날씨 정보에는 도시, 섭씨, 화씨, 날씨 상태
