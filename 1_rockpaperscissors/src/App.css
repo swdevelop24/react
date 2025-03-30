@@ -250,7 +250,6 @@ h1 {
         max-width: 200px;
         max-height: 200px;
         font-size: 4vw;
-        margin-top: 10px;
     }
 
     /* 이미지 크기 조정 */
@@ -266,14 +265,13 @@ h1 {
         justify-content: space-evenly;
         gap: 5px;
         width: 100%;
-        margin-top: 10px;
     }
 
     /* 버튼 크기 조정 */
     .custom-button {
         padding: 8px;
-        font-size: 4vw;
-        width: 70px;
+        font-size: 3vw !important;
+        width:60px !important;
         border-radius: 5px;
     }
 
