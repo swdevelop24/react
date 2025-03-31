@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+}
+
+h1{
+  padding: 100px;
+  color:blue;
+}
+
+
+.contact-list {
+  border: 2px solid #333; /* 테두리 색상 */
+  width: 80%;
+  height: 800px;
+  justify-content: flex-start;
+}
+
+
+
+.list-container{
+  border-bottom: 1px dotted green;
+ }
