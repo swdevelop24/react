@@ -94,7 +94,7 @@ function App() {
             <Box title="You" item={userSelect} result={result} />
             <Box title="Computer" item={computerSelect} result={result} />
           </div>
-          <div className='main'>
+          <div className='main main-button'>
             <button className="custom-button" onClick={() => { play("scissors"); setIsAnimating(!isAnimating); }}><i class="fa-solid fa-scissors"> 가위</i></button>
             <button className="custom-button" onClick={() => { play("rock"); setIsAnimating(!isAnimating); }}><i class="fa-solid fa-hand-back-fist"> 바위</i></button>
             <button className="custom-button" onClick={() => { play("paper"); setIsAnimating(!isAnimating); }}><i class="fa-solid fa-hand"> 보</i></button>

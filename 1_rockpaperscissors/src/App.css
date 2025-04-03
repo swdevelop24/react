@@ -10,7 +10,8 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    
+    height:100vh;
+    height:100dvh;
 }
 
 body{
@@ -125,9 +126,7 @@ h1 {
     /* 여유 공간 */
 }
 
-.custom-button {
-    margin-bottom: -20px;
-}
+
 
 .custom-button:nth-child(1) {
     padding: 10px;
@@ -281,6 +280,9 @@ h1 {
 
     .headline {
         font-size: 5rem;
+    }
+    .main-button{
+        margin-bottom:0px !important;
     }
 
 
