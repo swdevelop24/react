@@ -10,8 +10,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    height:100vh;
-    height:100dvh;
+    
 }
 
 body{
@@ -282,7 +281,7 @@ h1 {
         font-size: 5rem;
     }
     .main-button{
-        margin-bottom:0px !important;
+        margin-bottom:0px !important
     }
 
 
