@@ -281,9 +281,12 @@ h1 {
         font-size: 5rem;
     }
     .main-button{
-        margin-bottom:0px !important
+        margin-bottom:0px !important;
     }
 
+    .main-button{
+        margin-bottom: 0px !important;
+    }
 
 }
 
@@ -393,7 +396,7 @@ h1 {
     .reset-button {
         max-width: 100px;
         width: 100%;
-
+        font-size: 1rem;
       }
 }
 
