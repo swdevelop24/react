@@ -38,14 +38,20 @@ const ProductDetail = () => {
 
   return (
     <Container className={styles['product-container']} >
-      <Row className={styles['product-container-row'] }>
+      <Row className={styles['product-container-row']}>
         <Col className={styles['product-img']}>
           <img src={product?.img} />
         </Col>
         <Col>
           <div className={styles['product-des']}>품명: {product?.title}</div>
           <div className={styles['product-des']}>가격:  <FontAwesomeIcon icon={faWonSign} />{product?.price?.toLocaleString('ko-KR')} 원</div>
-          <div className={styles['product-des-choice']}>{product?.choice ? "Conscious Choice" : ""}</div>
+          {/* <div className={styles['product-des-choice']}>{product?.choice ? "Conscious Choice" : ""}</div> */}
+          {/* conscious choice 일때만 div 표시되도록 수정 */}
+          {product?.choice && (
+            <div className={styles['product-des-choice']}>
+              Conscious Choice
+            </div>
+          )}
           <DropdownButton
             variant="light"
             // id="dropdown-basic-button"

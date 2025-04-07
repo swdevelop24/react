@@ -144,50 +144,65 @@
 
 
 /* 모바일에서는 버튼 보이기 */
-@media (max-width: 768px) {
+@media (max-width: 1024px),
+(max-width: 768px) {
 
-    .menu-list {
-        display: none;
-    }
-
-    .menu-btn,
-    .close-btn {
-        color: navy !important;
-        display: block;
-        position: fixed;
+    /* 삼선(X) 버튼: 항상 왼쪽 상단에 고정 */
+    .menu-btn {
+        position: absolute;
         top: 15px;
         left: 15px;
         font-size: 24px;
         background-color: transparent;
         border: none;
+        color: rgb(128, 119, 0);
+        z-index: 200;
         cursor: pointer;
+        display: block;
     }
 
-    .close-btn {
-        top: 10px;
-        right: 15px;
-        font-size: 18px;
+    /* 메뉴바: 기본은 왼쪽 바깥에 숨겨져 있음 */
+    .menu-area {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 68%;
+        max-width: 200px;
+        height: 100dvh;
+        background-color: rgba(66, 56, 49, 0.95);
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+        transition: left 0.3s ease-in-out;
+        z-index: 150;
+        padding-top: 70px;
+        display: block;
     }
 
+    /* 메뉴바 열렸을 때 (슬라이드 등장) */
     .menu-area.open {
         left: 0;
-  
     }
 
-    .menu-list.show {
-        display: block;
-        /* 메뉴 열림 */
-        background-color: rgba(66, 56, 49, 0.9);
-        position: absolute;
-        top: 90px;
-        left:-10px;
-        width:50%;
-        box-shadow: 0 4px 6px 4px rgba(121, 117, 117, 0.7);
-        z-index:50;
+    /* 메뉴 항목 리스트 */
+    .menu-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
     }
 
-    .menu-list.show li {
-        color: white /* 검정색으로 변경 */
-      }
+    /* 메뉴 항목 스타일 */
+    .menu-list li {
+        padding: 20px;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+        border-bottom: none;
+        transition: background-color 0.3s ease;
+    }
 
+    .menu-list li:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        /* hover 시 밝아짐 */
+    }
 }

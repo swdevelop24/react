@@ -4,7 +4,7 @@ import { faUser, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 
 
@@ -77,6 +77,7 @@ import { useState, useEffect } from 'react'
 //     )
 // }
 
+
 const Navbar = ({ isLoggedIn, setAuthenticate }) => {
     const menuList = [
         '여성',
@@ -90,6 +91,7 @@ const Navbar = ({ isLoggedIn, setAuthenticate }) => {
     ];
 
     const navigate = useNavigate();
+    const inputRef = useRef(); //DOM 에 직접접근해서 서치 내용 없애주기 위해서 
 
     const handleLoginLogout = () => {
         // 로그아웃 상태일 때는 버튼 클릭 무시
@@ -119,6 +121,7 @@ const Navbar = ({ isLoggedIn, setAuthenticate }) => {
             let keyword = event.target.value;
             console.log('검색어:', keyword);
             navigate(`/?q=${keyword}`);
+            inputRef.current.value = ""; 
         }
     };
 
@@ -132,9 +135,13 @@ const Navbar = ({ isLoggedIn, setAuthenticate }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // 메뉴 열기/닫기 핸들러
+    // const toggleMenu = () => {
+    //     setIsMenuOpen(!isMenuOpen);
+    // };
     const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
+        setIsMenuOpen(prev => !prev);
     };
+
     return (
         <div>
             <div>
@@ -155,24 +162,27 @@ const Navbar = ({ isLoggedIn, setAuthenticate }) => {
             </div>
 
             {/*  메뉴 영역 */}
-            <div className="menu-area">
-                {/* 햄버거 버튼 - 모바일에서만 보임 */}
+            <div className="navbar-container">
+                {/* 삼선 / X 버튼 - 항상 보이고, 클릭 시 아이콘만 변경 */}
                 <button className="menu-btn" onClick={toggleMenu}>
                     <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
                 </button>
 
-                {/* 모바일에서는 햄버거 버튼으로 메뉴 보이기 */}
-                <ul className={`menu-list ${isMenuOpen ? 'show' : ''}`}>
-                    {menuList.map((menu, index) => (
-                        <li key={index}>{menu}</li>
-                    ))}
-                </ul>
+                {/* 사이드 메뉴 영역 */}
+                <div className={`menu-area ${isMenuOpen ? 'open' : ''}`}>
+                    <ul className="menu-list">
+                        {menuList.map((menu, index) => (
+                            <li key={index}>{menu}</li>
+                        ))}
+                    </ul>
+                </div>
             </div>
+
 
             {/*  검색 기능 */}
             <div className="menu-search">
                 <FontAwesomeIcon icon={faSearch} className="search-icon" />
-                <input type="text" onKeyDown={search} />
+                <input type="text" onKeyDown={search}  ref={inputRef} />
             </div>
         </div>
 
