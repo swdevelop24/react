@@ -1,0 +1,43 @@
+.banner {
+    height: 56vh;
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    /* position: relative; */
+}
+
+.banner::before {
+    content: '';
+    /* background: linear-gradient(to top, black, transparent); */
+    background: linear-gradient(to top, black 0%, transparent 50%);
+    position: absolute;
+    left: 0;
+    height: 56vh;
+    width: 100%;
+}
+
+
+.banner-text-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem;
+
+    max-width: 500px;
+    max-height: 500px;
+    /* 또는 90%, 혹은 px 단위 */
+    margin: 0;
+}
+
+.banner-text-area>* {
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .banner-text-area {
+        width: 90%;
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,27 @@
+.nav-container {
+    height: 100dvh;
+    height: 100vh;
+    background-color: black;
+}
+
+.nav-custom-search-container {
+    background-color: transparent;
+}
+
+.nav-custom-search-box {
+    margin-right: 1.2rem;
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee; /* 기본 border 설정 */
+}
+
+.nav-custom-search-box::placeholder {
+    color: #eee;
+}
+
+.nav-custom-search-box:focus {
+    outline: none !important;
+    border: 1px solid  !important; /* 포커스 시 파란 테두리 제거 */
+    color: #eee;
+    background-color: transparent !important;
+}
