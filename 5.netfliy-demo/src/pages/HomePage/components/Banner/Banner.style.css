@@ -24,14 +24,16 @@
     justify-content: center;
     height: 100%;
     padding: 2rem;
-
     max-width: 500px;
     max-height: 500px;
     /* 또는 90%, 혹은 px 단위 */
     margin: 0;
+    padding-left: 5rem;
+    text-align: justify;
+    
 }
 
-.banner-text-area>* {
+.banner-text-area > * {
     z-index: 2;
 }
 

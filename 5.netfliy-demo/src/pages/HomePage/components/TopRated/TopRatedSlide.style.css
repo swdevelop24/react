@@ -1,0 +1,9 @@
+.carousel-container{
+    overflow:hidden;
+    height:440px;
+}
+.carousel-wrapper{
+    width:100dvw;
+    width:100vw;
+    padding: 100px;
+}
