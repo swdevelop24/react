@@ -19,7 +19,7 @@ const Banner = () => {
 
   return (
     <div
-      className="banner"
+      className="banner banner-animated-background"
       style={{
         backgroundImage: `url(https://media.themoviedb.org/t/p/w1280${data?.results[0].backdrop_path})`,
       }}
@@ -33,3 +33,16 @@ const Banner = () => {
 };
 
 export default Banner;
+
+
+{/* <div className="banner-video-container">
+  <video autoPlay muted loop className="banner-video">
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div className="banner-overlay">
+    <h1>{data?.results[0].title}</h1>
+    <p>{data?.results[0].overview}</p>
+  </div>
+</div> */}

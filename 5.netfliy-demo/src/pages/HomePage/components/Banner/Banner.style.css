@@ -43,3 +43,30 @@
         padding: 1rem;
     }
 }
+
+
+/* test */
+.banner-video-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+  }
+  
+  .banner-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .banner-overlay {
+    position: relative;
+    z-index: 1;
+    padding: 5rem;
+    background: rgba(0, 0, 0, 0.4); /* 텍스트 잘 보이게 어둡게 처리 */
+  }
+  

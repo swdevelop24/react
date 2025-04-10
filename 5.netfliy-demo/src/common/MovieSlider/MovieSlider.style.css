@@ -1,10 +1,15 @@
 .carousel-container {
   overflow: hidden;
+  /* 카드간 간격 추가한 패딩과 균형 맞춤*/
+  margin: 0 -0.5rem;
 }
 
 .movie-slider {
   max-width: 100%;
   overflow: hidden;
+  /* 카드간 간격추가 */
+  padding: 0 0.5rem;  
+  box-sizing: border-box;
 }
 
 .movie-slider img {
