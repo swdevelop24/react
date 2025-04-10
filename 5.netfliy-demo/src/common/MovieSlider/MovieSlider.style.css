@@ -12,3 +12,8 @@
   height: auto;
   object-fit: cover;
 }
+
+.carousel-wrapper{
+  box-sizing: border-box;
+  padding: 3rem;
+}

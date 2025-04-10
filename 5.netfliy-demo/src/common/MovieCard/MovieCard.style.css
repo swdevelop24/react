@@ -37,6 +37,15 @@
     line-height: 1.7rem;
 }
 
+/* clamp(MIN, PREFERRED, MAX) */
+.overlay-title {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    max-width: 90%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
 .custom-overlay-badge-id {
     margin-right: 5px !important;
 }
@@ -54,6 +63,7 @@
 
 .overlay:hover {
     opacity: 1;
+    padding: 5rem;
 }
 
 .movie-card:hover {
@@ -77,7 +87,18 @@
     }
 
     .overlay {
-        display: none;
+        /* display: none; */
         background-position: center;
+        
+        
+    }
+    .overlay-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: space-between;
+        background: rgba(0, 0, 0, 0.7);
+        font-size: clamp(0.9rem, 3vw, 1.3rem);
     }
 }
+
+
