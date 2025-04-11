@@ -1,11 +1,38 @@
-.login-button {
+/* .login-button {
     display: flex;
     justify-content: flex-end;
     margin: 20px;
     margin-right: 50px;
     gap: 10px;
     cursor: pointer;
-}
+} */
+.login-button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.5rem 1rem;
+  }
+  
+  .login-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #1c1c1c;
+    cursor: pointer;
+    padding-top: 1rem;
+  }
+  
+  .login-button-icon {
+    font-size: 1.1rem;
+    color: #1c1c1c;
+  }
+  
+  .login-text {
+    font-size: 1rem;
+    color: #1c1c1c;
+  }
 
 
 .nav-section {
@@ -99,7 +126,7 @@
     /* 이미지와 텍스트 사이 간격 줄이기 */
 }
 
-
+login-button
 .conscious-pcard {}
 
 /* 데스크톱에서는 버튼 숨기기 */

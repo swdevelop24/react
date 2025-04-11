@@ -17,12 +17,30 @@ const ProductAll = () => {
     // let searchQuery = query.get('q')|| "";
 
     // 이전 결과 먼저 초기화
+    // setProductList([]);
+    // console.log("쿼리값은?", searchQuery)
+    // let url = ` https://my-json-server.typicode.com/swdevelop24/react/products?q=${searchQuery}`
+    // let response = await fetch(url);
+    // let data = await response.json();
+    // console.log(data);
+    // setProductList(data);
+
+    // 초기화
     setProductList([]);
-    console.log("쿼리값은?", searchQuery)
-    let url = ` https://my-json-server.typicode.com/swdevelop24/react/products?q=${searchQuery}`
+    console.log("쿼리값은?", searchQuery);
+
+    // 1. 전체 데이터를 먼저 가져오고
+    let url = `https://my-json-server.typicode.com/swdevelop24/react/products`;
     let response = await fetch(url);
     let data = await response.json();
-    console.log(data);
+
+    // 2. 검색어가 있을 경우 필터링
+    if (searchQuery.trim()) {
+      data = data.filter((item) =>
+        item.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
     setProductList(data);
   };
 
