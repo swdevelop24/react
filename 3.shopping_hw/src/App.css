@@ -233,3 +233,17 @@ login-button
         /* hover 시 밝아짐 */
     }
 }
+
+
+/*검색창 위치 조정 */
+@media screen and (min-width: 1200px) and (max-width: 1800px) {
+    .menu-search {
+      right: 100px; 
+      max-width: 300px; 
+      top: 20px;
+    }
+  
+    .menu-search input {
+      width: 100%;
+    }
+  }
