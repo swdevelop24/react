@@ -1,6 +1,8 @@
+
+body{
+    box-sizing: border-box;
+}
 .nav-container {
-    height: 100dvh;
-    height: 100vh;
     background-color: black;
 }
 

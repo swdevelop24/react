@@ -1,125 +1,90 @@
 .movie-card {
-    width: 220px;
-    height: 400px;
-    background-size: cover;
-    cursor: pointer;
-    transition: 0.5s;
-    border: 5px solid rgb(240, 238, 238);
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 5px solid rgb(240, 238, 238);
+  position: relative;
+
+  /* scale로 넘치는 걸 방지 */
+  overflow: hidden;
 }
 
-.movie-card {
-    width: 100%;
-    aspect-ratio: 2 / 3;
-    /* 가로:세로 비율 유지 */
-    background-size: cover;
-    cursor: pointer;
-    transition: 0.5s;
-    border: 5px solid rgb(240, 238, 238);
-    position: relative;
-}
-
-.movie-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
+/* 오버레이 */
 .overlay {
-    width: 100%;
-    height: 100%;
-    background: rgba(43, 41, 41, 0.9);
-    opacity: 0;
-    transition: all 1s;
-    color: white;
-    font-weight: bold;
-    padding: 2rem;
-    box-sizing: border-box;
-    font-size: clamp(0.8rem, 2vw, 1rem);
-    /* 화면에 따라 자동 조절 */
-    line-height: 1.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(43, 41, 41, 0.9);
+  opacity: 0;
+  transition: all 0.5s ease;
+  color: white;
+  font-weight: bold;
+  padding: 2rem;
+  box-sizing: border-box;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  line-height: 2;
+
+  /* 크기 제한 */
+  max-height: 100%;
+  overflow: hidden;
 }
 
-/* clamp(MIN, PREFERRED, MAX) */
 .overlay-title {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    /* 제목 반응형 */
-    line-height: 1.3;
-    margin-bottom: 0.5rem;
-    word-break: break-word;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
 }
-
-.custom-overlay-badge-id {
-    margin-right: 5px !important;
-}
-
-
-.custom-overlay-over18 {
-    color: red;
-    font-weight: 800;
-}
-
-.custom-overlay-under18 {
-    color: green;
-}
-
-.custom-overlay-badge-id,
-.custom-overlay-badge-rating {
-    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-    padding: 0.3em 0.5em;
-    margin-right: 0.3em;
-    line-height: 1;
-}
-
-.custom-overlay-over18,
-.custom-overlay-under18 {
-    font-size: clamp(0.75rem, 1.5vw, 1rem);
-    font-weight: bold;
-}
-
 
 .overlay:hover {
-    opacity: 1;
-    padding: 5rem;
+  opacity: 1;
+  padding: 2.5rem; /* 너무 크지 않게 조절 */
 }
 
+/* 카드 hover */
 .movie-card:hover {
-    transform: scale(1.3) translateZ(20px);
-    z-index: 2;
+  transform: scale(1.1);
+  z-index: 2;
 }
 
+.no-image-text{
+  color: white !important;
+  font-size:2rem;
+  transform: translate(30%,50%);
+}
 
+/* 반응형 수정 */
 @media (max-width: 853px) {
-    /* .movie-card-container {
-        min-width: 350px;
-        height: auto;
-    } */
+  .movie-card-container {
+    min-width: 180px;
+    box-sizing: border-box;
+  }
 
-    .movie-card-container {
-        min-width: 180px;
-        box-sizing: border-box;
-    }
+  .movie-card {
+    height: auto;
+    border: none;
+    margin: 0;
+    background-position: center;
+    overflow: hidden;
+  }
 
-    .movie-card {
-        width: 100%;
-        height: auto;
-        border: none;
-        margin: 0px;
-        background-position: center;
-    }
+  .overlay {
+    padding: 1.5rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  }
 
-    .overlay {
-        padding: 1rem;
-        font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-    }
+  .overlay-title {
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    max-width: 100%;
+  }
 
-    .overlay-title {
-        font-size: clamp(0.9rem, 2vw, 1.2rem);
-        max-width: 100%;
-    }
-
-    .custom-overlay-badge-id,
-    .custom-overlay-badge-rating {
-        font-size: clamp(0.6rem, 2vw, 0.8rem);
-    }
-
+  .custom-overlay-badge-id,
+  .custom-overlay-badge-rating {
+    font-size: clamp(0.6rem, 2vw, 0.8rem);
+  }
 }

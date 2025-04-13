@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -7,10 +7,22 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./AppLayout.style.css";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useSearchParams, useNavigate } from "react-router-dom";
 
 
 const AppLayout = () => {
+
+  // 입력값 받아오기 
+  const [keyword, setKeyword] = useState(""); 
+  const navigate = useNavigate()
+  const searchByKeyword=(event)=>{
+    // form 인경우 리프레스 방지해줘야함 
+    event.preventDefault() 
+    // url 바꿔주기 
+    navigate(`/movies?q=${keyword}`)
+    setKeyword("");
+    
+  }
   return (
     <div className="nav-container">
       <Navbar expand="lg" variant="dark" style={{ background: "black" }}>
@@ -29,24 +41,25 @@ const AppLayout = () => {
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "70px" }}
               navbarScroll
             >
               <Nav.Link as={Link} to="/" className="text-white">
                 Home
               </Nav.Link>
               <Nav.Link as={Link} to="/movies" className="text-white">
-                Link
+                Movies
               </Nav.Link>
             </Nav>
-            <Form className="d-flex nav-custom-search-container" >
+            <Form className="d-flex nav-custom-search-container" onSubmit={searchByKeyword}>
               <Form.Control
                 className="nav-custom-search-box"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                value={keyword}
+                onChange={(event) => setKeyword(event.target.value)}
               />
-              <Button variant="danger">Search</Button>
+              <Button variant="danger" type="submit">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>

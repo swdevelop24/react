@@ -6,6 +6,12 @@
     gap: 10px;
     cursor: pointer;
 } */
+
+body{
+    box-sizing: border-box;
+    height:100dvh;
+}
+ 
 .login-button {
     display: flex;
     justify-content: flex-end;

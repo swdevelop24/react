@@ -1,4 +1,23 @@
-body{
-    background-color: black !important;
-    color:white !important;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  /* 가로 스크롤 제거 */
+  /* overflow-y는 기본값 auto 그대로 두기 */
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.spinner-area {
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20dvh;
 }
