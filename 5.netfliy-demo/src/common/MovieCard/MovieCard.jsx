@@ -42,7 +42,7 @@ const MovieCard = ({ movie }) => {
           <h4 className="overlay-title">{movie.title}</h4>
           {/* 아래에서 id는 장르이름을 의미함.. => genreName으로 바꿔줘도 됨..  */}
           {showGenre(movie.genre_ids).slice(0,3).map((id) => (
-            <Badge key={id} bg="danger" className="custom-overlay-badge-id">
+            <Badge key={id} bg="danger" className="custom-overlay-badge-id badge-group">
               {id}
             </Badge>
           ))}
@@ -51,7 +51,7 @@ const MovieCard = ({ movie }) => {
               <Badge
                 bg="warning"
                 text="light"
-                className="custom-overlay-badge-rating"
+                className="custom-overlay-badge-rating badge-group"
               >
                 {" "}
                 TDMB
