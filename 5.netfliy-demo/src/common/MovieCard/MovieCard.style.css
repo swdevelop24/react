@@ -52,10 +52,19 @@
   z-index: 2;
 }
 
-.no-image-text{
+/* .no-image-text{
   color: white !important;
   font-size:2rem;
   transform: translate(30%,50%);
+} */
+
+.no-image-text {
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  top:10%;
+  left: 20%;
+  text-align: center;
 }
 
 /* 반응형 수정 */

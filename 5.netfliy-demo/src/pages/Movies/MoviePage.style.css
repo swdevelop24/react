@@ -2,3 +2,64 @@
   padding-left: 15rem;
   padding-right: 7rem;
 }
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  padding: 1.5rem 0;
+  list-style: none;
+  margin: 0 auto;
+}
+
+.custom-pagination li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 8px;
+  font-size: 1rem;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.custom-pagination li {
+  white-space: nowrap; 
+  min-width: 50px;    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0 10px;
+}
+
+.custom-pagination li:hover {
+  background-color: #f1f1f1;
+}
+
+.custom-pagination li a {
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-pagination li.active {
+  background-color: #000;
+  color: white;
+  font-weight: bold;
+  border-color: #000;
+}
+
+.custom-pagination li.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
