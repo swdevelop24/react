@@ -6,13 +6,13 @@ const NotFoundPage = () => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    navigate(-1); //바로 전 페이지로 이동
+    navigate("/"); //홈페이지로 이동
   };
   return (
     <div className="background">
       <div className="container">
         <p>Nothing...</p>
-        <button onClick={handleBackClick}>Back</button>
+        <button onClick={handleBackClick}>Back to Home</button>
       </div>
     </div>
   );

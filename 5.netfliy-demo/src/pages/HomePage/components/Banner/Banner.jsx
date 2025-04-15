@@ -110,7 +110,7 @@ const Banner = () => {
       {/* 영상 모달 */}
       <Modal show={showModal} onHide={closeModal} size="lg" centered>
         <Modal.Header closeButton>
-          <Modal.Title>{data?.results[0]?.title} : 영상 감상중❤️ </Modal.Title>
+          <Modal.Title> 영상 감상중❤️</Modal.Title>
         </Modal.Header>
         <Modal.Body
           style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}

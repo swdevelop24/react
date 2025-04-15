@@ -20,13 +20,18 @@ import { useQuery } from "@tanstack/react-query";
 import api from "../utils/api";
 
 const fetchSearchMovie = ({ keyword, page, sortOption, genreFilter }) => {
+  let url = "";
+
   if (keyword) {
-    return api.get(`/search/movie?query=${keyword}&page=${page}`);
+    url = `/search/movie?query=${keyword}&page=${page}`;
   } else {
-    let url = `/discover/movie?sort_by=${sortOption}&page=${page}`;
-    if (genreFilter) url += `&with_genres=${genreFilter}`;
-    return api.get(url);
+    url = `/discover/movie?sort_by=${sortOption}&page=${page}&vote_count.gte=10`;
+    if (genreFilter) {
+      url += `&with_genres=${genreFilter}`;
+    }
   }
+
+  return api.get(url);
 };
 
 export const useSearchMovieQuery = ({ keyword, page, sortOption, genreFilter }) => {
