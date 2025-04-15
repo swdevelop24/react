@@ -29,3 +29,21 @@ dist-ssr
 .env.*
 
 
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.apdisk
+
+# VSCode
+.vscode/
+
+
+
