@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useMovieDetailQuery } from "../../hooks/useMovieDetail";
 import { useMovieTrailerQuery } from "../../hooks/useMovieTrailer";
+import { useMovieReviewQuery } from "../../hooks/useMovieReview";
 import NotFoundPage from "../NotFound/NotFoundPage";
 
 import {
@@ -23,13 +24,24 @@ const MovieDetailPage = () => {
     return <NotFoundPage />;
   }
 
+  // 세부 정보 관련
   const { data, isLoading, isError, error } = useMovieDetailQuery(id);
+
+  // 트레일러 관련
   const {
     data: trailerData,
     isLoading: trailerIsLoading,
     isError: trailerIsError,
     error: trailerError,
   } = useMovieTrailerQuery(id);
+
+  //리뷰관련
+  const {
+    data: reviewData,
+    isLoading: reviewIsLoading,
+    isError: reviewIsError,
+    error: reviewError,
+  } = useMovieReviewQuery(id);
 
   const [showModal, setShowModal] = useState(false);
   const [videoKey, setVideoKey] = useState("");
@@ -50,7 +62,24 @@ const MovieDetailPage = () => {
   if (trailerIsError)
     return <Alert variant="danger">{trailerError.message}</Alert>;
 
-  const { title, poster_path, genres, budget, release_date, overview, vote_average, vote_count } = data;
+  // 상세 클릭한 데이터 아이디 동일한지 체크 & 데이터 잘 오는지 체크
+  console.log("detailid", id);
+  console.log("trailerid", id);
+  console.log("reviewid", id);
+  console.log("detaildata", data);
+  console.log("trailerdata", trailerData);
+  console.log("reviewdata", reviewData);
+
+  const {
+    title,
+    poster_path,
+    genres,
+    budget,
+    release_date,
+    overview,
+    vote_average,
+    vote_count,
+  } = data;
 
   const trailer = trailerData?.find(
     (v) => v.type === "Trailer" && v.site === "YouTube"
@@ -73,6 +102,20 @@ const MovieDetailPage = () => {
     setVideoKey("");
   };
 
+  // 리뷰관련
+  const topReviews = reviewData?.slice(0, 5);
+
+  // 각 리뷰 id별로 펼침 여부 저장
+  const [expandedReviews, setExpandedReviews] = useState({});
+
+  const toggleReview = (id) => {
+    setExpandedReviews((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  const isExpanded = (id) => expandedReviews[id];
   return (
     <div className="movie-detail-page">
       <div className="container-first-title">
@@ -166,17 +209,44 @@ const MovieDetailPage = () => {
           </Modal.Body>
         </Modal>
 
-        {/* 트레일러 섹션 */}
-        <div className="review-section">
-          <h2>⚱️관련 리뷰 </h2>
-        </div>
+        <Row>
+          <Col>
+            {/* 리뷰 섹션 */}
+            <div className="review-section">
+              <h2>⚱️관련 리뷰 </h2>
+            </div>
+            <div className="review-container">
+              {topReviews?.length > 0 ? (
+                topReviews.map((review) => (
+                  <div key={review.id} className="single-review">
+                    <p className="review-author">
+                      <strong>{review.author}</strong>
+                    </p>
+                    <p className="review-content">
+                      {review.content.length > 300 && !isExpanded(review.id)
+                        ? review.content.slice(0, 300) + "..."
+                        : review.content}
+                    </p>
+
+                    {review.content.length > 300 && (
+                      <button
+                        className="toggle-button"
+                        onClick={() => toggleReview(review.id)}
+                      >
+                        {isExpanded(review.id) ? "접기 ▲" : "더보기 ▼"}
+                      </button>
+                    )}
+                  </div>
+                ))
+              ) : (
+                <p>리뷰가 없습니다.😢</p>
+              )}
+            </div>
+          </Col>
+        </Row>
       </Container>
     </div>
   );
 };
 
 export default MovieDetailPage;
-
-
-
-

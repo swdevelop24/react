@@ -8,7 +8,7 @@ const fetchMovieReview=(id) =>{
 }
 
 
-export const useMovieReviewQuery=() =>{
+export const useMovieReviewQuery=(id) =>{
     return useQuery({
         queryKey: ['movie-review', id], 
         queryFn: ()=>fetchMovieReview(id), 

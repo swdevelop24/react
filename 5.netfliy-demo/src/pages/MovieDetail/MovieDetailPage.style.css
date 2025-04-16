@@ -3,6 +3,7 @@
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
+
 .movie-detail-page {
   padding: 2rem 1rem;
   background-color: #000;
@@ -27,14 +28,16 @@
   gap: 2rem;
 }
 
-.info-col{
+.info-col {
   margin-bottom: 10rem;
 }
-.info-col> p {
+
+.info-col>p {
   margin-top: 5px;
 }
-.genre-badges{
-  margin-left:-0.5rem;
+
+.genre-badges {
+  margin-left: -0.5rem;
   margin-bottom:
 }
 
@@ -96,7 +99,7 @@
 
 /* 트레일러 섹션 */
 .trailer-section {
-  margin-top: 5rem;
+  margin-top: 10rem;
   text-align: center;
   color: white;
 }
@@ -138,6 +141,59 @@
   font-style: italic;
 }
 
+
+.review-section {
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.review-container {
+  width: 100%;
+}
+
+.single-review {
+  width:90%;
+  margin: 0 auto;
+  background-color:white;
+  padding: 2rem;
+  border: 3px solid  rgba(201, 17, 17, 0.3);
+  color: black;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.single-review p{
+  font-size: 1rem !important;
+  
+}
+.review-author{
+  margin:0px !important;
+  color:rgb(77, 97, 153);
+  margin-bottom:5px !important;
+}
+
+.review-content{
+  margin:0px !important;
+ 
+}
+
+.toggle-button {
+  background-color:#f5352f!important; 
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.7rem !important;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+  background-color: #e7cfd1 !important;
+}
+
 /* 반응형 */
 @media (max-width: 768px) {
   .movie-title {
@@ -158,8 +214,9 @@
   }
 
 }
-@media (max-width: 1024px){
-  .info-col{
+
+@media (max-width: 1024px) {
+  .info-col {
     margin: auto;
   }
 }
