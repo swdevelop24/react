@@ -34,6 +34,21 @@ const MovieCard = ({ movie }) => {
     return genreNameList;
   };
 
+  const formatPopularity = (popularity) => {
+    if (popularity >= 1000) {
+      return (popularity / 1000).toFixed(1) + "K+";
+    }
+    return Math.round(popularity);
+  };
+
+  const getPopularityLabel = (popularity) => {
+    if (popularity >= 2000) return "🔥 Mega Hit";
+    if (popularity >= 1000) return "⭐ Blockbuster";
+    if (popularity >= 300) return "🎬 Popular";
+    if (popularity >= 50) return "📺 Moderate";
+    return "🫥 Hidden Gem";
+  };
+
   return (
     <div className="movie-card-container">
       <div
@@ -66,10 +81,12 @@ const MovieCard = ({ movie }) => {
                 {" "}
                 TDMB
               </Badge>{" "}
-              {movie.vote_average}
+              {movie.vote_average.toFixed(1)}
             </div>
             <div>
-              <FontAwesomeIcon icon={faUsers} /> {movie.popularity}
+              <FontAwesomeIcon icon={faUsers} /> 
+              {/* {movie.popularity.toFixed(0)} */}
+              {formatPopularity(movie.popularity)} ({getPopularityLabel(movie.popularity)})
             </div>
             <div
               className={`custom-overlay-${movie.adult ? "over18" : "under18"}`}

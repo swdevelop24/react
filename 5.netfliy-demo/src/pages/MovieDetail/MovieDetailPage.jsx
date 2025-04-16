@@ -50,7 +50,7 @@ const MovieDetailPage = () => {
   if (trailerIsError)
     return <Alert variant="danger">{trailerError.message}</Alert>;
 
-  const { title, poster_path, genres, budget, release_date, overview } = data;
+  const { title, poster_path, genres, budget, release_date, overview, vote_average, vote_count } = data;
 
   const trailer = trailerData?.find(
     (v) => v.type === "Trailer" && v.site === "YouTube"
@@ -102,6 +102,10 @@ const MovieDetailPage = () => {
                 </Badge>
               ))}
             </div>
+            <p>
+              <strong>Rating:</strong> ⭐ {vote_average.toFixed(1)} / 10 (
+              {vote_count.toLocaleString()} votes)
+            </p>
             <p>
               <strong>Budget:</strong>{" "}
               {budget === 0 ? "N/A" : `$${budget.toLocaleString()}`}
@@ -161,9 +165,18 @@ const MovieDetailPage = () => {
             />
           </Modal.Body>
         </Modal>
+
+        {/* 트레일러 섹션 */}
+        <div className="review-section">
+          <h2>⚱️관련 리뷰 </h2>
+        </div>
       </Container>
     </div>
   );
 };
 
 export default MovieDetailPage;
+
+
+
+
