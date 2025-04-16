@@ -32,15 +32,16 @@ const AppLayout = () => {
     <div className="nav-container">
       <Navbar expand="lg" variant="dark" style={{ background: "black" }}>
         <Container fluid>
-          <Navbar.Brand href="#">
-            {" "}
+          <Navbar.Brand href="#" style={{color: "red", fontSize:"900",marginLeft:"0.5em"}}>
+            {/* {" "}
             <img
               src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmV0ZmxpeHxlbnwwfHwwfHx8Mg%3D%3D"
               alt="Brand Logo"
               height="53"
               width="100"
               className="d-inline-block align-top"
-            />
+            /> */}
+            <strong>M</strong>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -84,7 +85,6 @@ const AppLayout = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-        ;
       </Navbar>
       <Outlet />
     </div>
