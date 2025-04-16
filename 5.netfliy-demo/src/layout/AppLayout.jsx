@@ -51,6 +51,9 @@ const AppLayout = () => {
               <Nav.Link as={Link} to="/movies" className="text-white">
                 Movies
               </Nav.Link>
+              <Nav.Link as={Link} to="/recommendation" className="text-white">
+                Weather
+              </Nav.Link>
             </Nav>
             <Form
               className="d-flex nav-custom-search-container"

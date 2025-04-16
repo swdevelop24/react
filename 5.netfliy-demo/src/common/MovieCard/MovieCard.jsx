@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,6 +13,14 @@ const MovieCard = ({ movie }) => {
   const { data: genreData } = useMovieGenreQuery();
   // data가 다 나오니까 장르만 나오게 해보기 (결과물 많이 나오지만 리액트 쿼리가 뭉쳐서 하나만 호출 -network창 확인!)
   console.log("ggg", genreData);
+
+  const navigate = useNavigate(); 
+  
+
+   // 클릭 시 상세페이지 이동
+   const goToDetail = () => {
+    navigate(`/movies/${movie.id}`);
+  };
 
   //  장르 아이디(숫자)들만 모여있는 리스트를 받아서 장르 api데이터(아이디 & 장르이름)와 비교해서서 장르르이름으로 바꿔주는 과정
   const showGenre = (genreIdList) => {
@@ -36,6 +45,7 @@ const MovieCard = ({ movie }) => {
           })`,
         }}
         className="movie-card"
+        onClick={goToDetail}
       >
         {!movie.poster_path && <div className="no-image-text">No image...<br/> <div>Title: {movie.title}</div></div>}
         <div className="overlay">
