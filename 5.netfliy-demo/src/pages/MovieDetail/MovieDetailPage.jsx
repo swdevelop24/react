@@ -1,23 +1,40 @@
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useMovieDetailQuery } from "../../hooks/useMovieDetail";
+import { useMovieTrailerQuery } from "../../hooks/useMovieTrailer";
 import NotFoundPage from "../NotFound/NotFoundPage";
 
-import { Spinner, Container, Row, Col, Badge } from "react-bootstrap";
+import {
+  Spinner,
+  Container,
+  Row,
+  Col,
+  Badge,
+  Modal,
+  Alert,
+} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./MovieDetailPage.style.css";
 
 const MovieDetailPage = () => {
-  const { id } = useParams(); // URL의 :id 값 받아오기
-  // 아이디가 숫자가 아니면 404
+  const { id } = useParams();
+
   if (!/^\d+$/.test(id)) {
     return <NotFoundPage />;
   }
 
-  const { data, isLoading, isError, error } = useMovieDetailQuery(id); // id로 API 호출
+  const { data, isLoading, isError, error } = useMovieDetailQuery(id);
+  const {
+    data: trailerData,
+    isLoading: trailerIsLoading,
+    isError: trailerIsError,
+    error: trailerError,
+  } = useMovieTrailerQuery(id);
 
-  console.log("id", id);
+  const [showModal, setShowModal] = useState(false);
+  const [videoKey, setVideoKey] = useState("");
 
-  if (isLoading) {
+  if (isLoading || trailerIsLoading) {
     return (
       <div className="spinner-area">
         <Spinner
@@ -28,13 +45,40 @@ const MovieDetailPage = () => {
       </div>
     );
   }
-  if (isError) {
-    return <Alert>{error.message}</Alert>;
-  }
+
+  if (isError) return <Alert variant="danger">{error.message}</Alert>;
+  if (trailerIsError)
+    return <Alert variant="danger">{trailerError.message}</Alert>;
 
   const { title, poster_path, genres, budget, release_date, overview } = data;
+
+  const trailer = trailerData?.find(
+    (v) => v.type === "Trailer" && v.site === "YouTube"
+  );
+  const teaser = trailerData?.find(
+    (v) => v.type === "Teaser" && v.site === "YouTube"
+  );
+  const featurette = trailerData?.find(
+    (v) => v.type === "Featurette" && v.site === "YouTube"
+  );
+  const selectedVideo = trailer || teaser || featurette;
+
+  const openModal = (key) => {
+    setVideoKey(key);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setVideoKey("");
+  };
+
   return (
     <div className="movie-detail-page">
+      <div className="container-first-title">
+        <h2> 🎈 영화 정보 </h2>
+      </div>
+
       <Container>
         <Row className="movie-detail-content">
           <Col xl={5} md={5} xs={12} className="poster-col">
@@ -53,7 +97,7 @@ const MovieDetailPage = () => {
             <h2 className="movie-title">{title}</h2>
             <div className="genre-badges">
               {genres.map((genre) => (
-                <Badge bg="secondary" key={genre.id}>
+                <Badge bg="danger" className="p-2" key={genre.id}>
                   {genre.name}
                 </Badge>
               ))}
@@ -72,9 +116,50 @@ const MovieDetailPage = () => {
 
         {/* 트레일러 섹션 */}
         <div className="trailer-section">
-          <h3>Trailer</h3>
-          <div className="trailer-video-box">영상은 여기에...</div>
+          <h2>🎬 관련 영상 </h2>
+          {selectedVideo ? (
+            <div
+              className="video-thumbnail-box"
+              onClick={() => openModal(selectedVideo.key)}
+            >
+              <img
+                className="trailer-thumbnail-img"
+                src={`https://img.youtube.com/vi/${selectedVideo.key}/0.jpg`}
+                alt="trailer thumbnail"
+              />
+            </div>
+          ) : (
+            <p className="no-video">관련 영상이 없습니다 😢</p>
+          )}
         </div>
+
+        {/* 모달 */}
+        <Modal show={showModal} onHide={closeModal} size="lg" centered>
+          <Modal.Header closeButton>
+            <Modal.Title>영상 감상중 🎬</Modal.Title>
+          </Modal.Header>
+          <Modal.Body
+            style={{
+              position: "relative",
+              paddingBottom: "56.25%",
+              height: 0,
+            }}
+          >
+            <iframe
+              src={`https://www.youtube.com/embed/${videoKey}?autoplay=1`}
+              title="YouTube trailer"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </Modal.Body>
+        </Modal>
       </Container>
     </div>
   );
