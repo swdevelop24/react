@@ -8,4 +8,4 @@ const RecommendationPage = () => {
   )
 }
 
-export default RecommendationPage
+export default RecommendationPage;

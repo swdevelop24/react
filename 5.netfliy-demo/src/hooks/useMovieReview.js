@@ -14,6 +14,5 @@ export const useMovieReviewQuery=() =>{
         queryFn: ()=>fetchMovieReview(id), 
         select:(res) => res.data.results, 
         staleTime: 300000,
-
     })
 }; 
