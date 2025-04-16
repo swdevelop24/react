@@ -27,6 +27,17 @@
   gap: 2rem;
 }
 
+.info-col{
+  margin-bottom: 10rem;
+}
+.info-col> p {
+  margin-top: 5px;
+}
+.genre-badges{
+  margin-left:-0.5rem;
+  margin-bottom:
+}
+
 /* 포스터 */
 .poster-col {
   text-align: center;
@@ -144,5 +155,11 @@
   .trailer-thumbnail-img {
     width: 100%;
     height: auto;
+  }
+
+}
+@media (max-width: 1024px){
+  .info-col{
+    margin: auto;
   }
 }
