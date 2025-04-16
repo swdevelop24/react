@@ -187,11 +187,12 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.7rem !important;
+  padding:0.5rem !important;
   transition: background-color 0.3s ease;
 }
 
 .toggle-button:hover {
-  background-color: #e7cfd1 !important;
+  background-color: #440f13 !important;
 }
 
 /* 반응형 */

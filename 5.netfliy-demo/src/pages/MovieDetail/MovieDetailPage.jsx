@@ -45,6 +45,8 @@ const MovieDetailPage = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [videoKey, setVideoKey] = useState("");
+   // 각 리뷰 id별로 펼침 여부 저장
+   const [expandedReviews, setExpandedReviews] = useState({});
 
   if (isLoading || trailerIsLoading) {
     return (
@@ -69,6 +71,7 @@ const MovieDetailPage = () => {
   console.log("detaildata", data);
   console.log("trailerdata", trailerData);
   console.log("reviewdata", reviewData);
+
 
   const {
     title,
@@ -105,8 +108,7 @@ const MovieDetailPage = () => {
   // 리뷰관련
   const topReviews = reviewData?.slice(0, 5);
 
-  // 각 리뷰 id별로 펼침 여부 저장
-  const [expandedReviews, setExpandedReviews] = useState({});
+ 
 
   const toggleReview = (id) => {
     setExpandedReviews((prev) => ({
