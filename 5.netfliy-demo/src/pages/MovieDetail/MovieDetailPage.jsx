@@ -103,7 +103,8 @@ const MovieDetailPage = () => {
               ))}
             </div>
             <p>
-              <strong>Budget:</strong> ${budget.toLocaleString()}
+              <strong>Budget:</strong>{" "}
+              {budget === 0 ? "N/A" : `$${budget.toLocaleString()}`}
             </p>
             <p>
               <strong>Release Date:</strong> {release_date}
