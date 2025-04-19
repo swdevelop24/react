@@ -135,11 +135,11 @@
 }
 
 /* 트레일러 없을 때 메시지 */
-.no-video {
+/* .no-video {
   font-size: 1rem;
   color: #ccc;
   font-style: italic;
-}
+} */
 
 
 .review-section {
@@ -193,6 +193,20 @@
 
 .toggle-button:hover {
   background-color: #440f13 !important;
+}
+
+.no-video,
+.no-review {
+  font-size: 1.5rem !important;
+  color: #bbbbbb;
+  font-style: italic;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 /* 반응형 */

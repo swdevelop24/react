@@ -241,7 +241,7 @@ const MovieDetailPage = () => {
                   </div>
                 ))
               ) : (
-                <p>리뷰가 없습니다.😢</p>
+                <p className="no-review">리뷰가 없습니다.😢</p>
               )}
             </div>
           </Col>
