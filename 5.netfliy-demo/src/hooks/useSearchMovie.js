@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import api from "../utils/api";
 
-const fetchSearchMovie = async ({ keyword, maxPages = 30 }) => {
+const fetchSearchMovie = async ({ keyword, maxPages = 1 }) => {
   let allResults = [];
   let page = 1;
 
@@ -39,7 +39,7 @@ export const useSearchMovieQuery = ({ keyword, page, sortOption, genreFilter }) 
     queryKey: ["movie-search", { keyword, page, sortOption, genreFilter }],
     queryFn: () =>
       isSearch
-        ? fetchSearchMovie({ keyword, maxPages: 50 })
+        ? fetchSearchMovie({ keyword, maxPages: 30 })
         : fetchDiscoverMovie({ page, sortOption, genreFilter }),
     keepPreviousData: true,
     staleTime: 1000 * 60 * 5,

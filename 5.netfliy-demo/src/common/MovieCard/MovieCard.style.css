@@ -9,6 +9,7 @@
   position: relative;
   overflow: hidden;
   transform-origin: center center;
+  margin:auto;
 }
 
 /* 오버레이 */
@@ -23,9 +24,9 @@
   transition: opacity 0.5s ease;
   color: white;
   font-weight: bold;
-  padding: 2.3rem 1.5rem 1.5rem 1.5rem;
+  padding: 1.6rem 1.5rem 1.5rem 1.5rem;
   box-sizing: border-box;
-  font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+  font-size: clamp(0.75rem, 1vw, 0.95rem);
   line-height: 1.6;
   max-height: 100%;
   overflow-y: auto; /* ← 내부 스크롤 허용 */
@@ -50,7 +51,7 @@
 
 .no-image-text {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
   position: absolute;
   top: 2%;
   left: 5%;
@@ -65,8 +66,9 @@
 /* 반응형 */
 @media (max-width: 1024px) {
   .movie-card-container {
-    min-width: 180px;
+    min-width: 150px;
     box-sizing: border-box;
+    border: 3px solid white;
   }
 
   .movie-card {
@@ -76,8 +78,8 @@
   }
 
   .overlay {
-    padding: 1.8rem 1rem 1rem 1rem;  /* 위쪽만 살짝 더 줌 */
-    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    padding: 1.2rem 1rem 1rem 1rem;  /* 위쪽만 살짝 더 줌 */
+    font-size: clamp(0.7rem, 0.8vw, 0.8rem);
     line-height: 1.5;
   }
 
